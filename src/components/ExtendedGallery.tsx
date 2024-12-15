@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Navigation from './Navigation';
+import { 
+  Image as ImageIcon, 
+  Home as HouseIcon, 
+  Mountain as LandscapeIcon, 
+  Grid as AllIcon 
+} from 'lucide-react';
 
 // Shuffle array function
 function shuffleArray<T>(array: T[]): T[] {
@@ -73,6 +79,13 @@ export default function ExtendedGallery() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedImageIndex, filteredImages]);
 
+  const categoryIcons = {
+    all: AllIcon,
+    Außenbereich: HouseIcon,
+    Innenbereich: ImageIcon,
+    Umgebung: LandscapeIcon
+  };
+
   return (
     <>
       <Navigation />
@@ -82,19 +95,23 @@ export default function ExtendedGallery() {
             <h1 className="font-serif text-4xl text-center mb-12">Fotogalerie</h1>
             
             <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8">
-              {['all', 'Außenbereich', 'Innenbereich', 'Umgebung'].map(category => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`px-3 sm:px-4 py-2 rounded-lg text-sm sm:text-base whitespace-nowrap ${
-                    activeCategory === category
-                      ? 'bg-green-800 text-white'
-                      : 'bg-white text-gray-700 hover:bg-green-100'
-                  }`}
-                >
-                  {category === 'all' ? 'Alle' : category}
-                </button>
-              ))}
+              {['all', 'Außenbereich', 'Innenbereich', 'Umgebung'].map(category => {
+                const Icon = categoryIcons[category as keyof typeof categoryIcons];
+                return (
+                  <button
+                    key={category}
+                    onClick={() => setActiveCategory(category)}
+                    className={`px-3 sm:px-4 py-2 rounded-lg text-sm sm:text-base whitespace-nowrap flex items-center gap-2 ${
+                      activeCategory === category
+                        ? 'bg-green-800 text-white'
+                        : 'bg-white text-gray-700 hover:bg-green-100'
+                    }`}
+                  >
+                    <Icon className="w-5 h-5" />
+                    {category === 'all' ? 'Alle' : category}
+                  </button>
+                );
+              })}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
