@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
 // reCAPTCHA Konfiguration
-$recaptcha_secret = "DEIN_RECAPTCHA_SECRET_KEY";
+$recaptcha_secret = "YOUR_RECAPTCHA_SECRET_KEY";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
@@ -32,13 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if ($captcha_success->success) {
         // E-Mail Konfiguration
-        $to = "alexandra.url@hotmail.com";
+        $to = "contact@example.com";
         $subject = "Neue Anfrage von " . $data['name'];
         $message = "Name: " . $data['name'] . "\n";
         $message .= "E-Mail: " . $data['email'] . "\n\n";
         $message .= "Nachricht:\n" . $data['message'];
         
-        $headers = "From: noreply@thomanbauerhuette.at\r\n";
+        $headers = "From: noreply@example.com\r\n";
         $headers .= "Reply-To: " . $data['email'] . "\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
         

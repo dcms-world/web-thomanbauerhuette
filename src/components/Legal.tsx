@@ -7,8 +7,8 @@ export default function Legal() {
   const [showEmail, setShowEmail] = useState(false);
   const [showPhone, setShowPhone] = useState(false);
 
-  const emailName = 'thomanbauerhuette';
-  const emailDomain = 'hotmail.com';
+  const emailName = 'contact';
+  const emailDomain = 'example.com';
   const phonePrefix = '+43';
   const phonePart1 = '664';
   const phonePart2 = '6355';
@@ -33,22 +33,22 @@ export default function Legal() {
           <section className="mb-12">
             <h2 className="font-serif text-2xl mb-4">Impressum</h2>
             <p>
-              Webseitenbetreiber: Leonhard Kendlbacher<br />
+              <strong>Webseitenbetreiber:</strong> Leonhard Kendlbacher<br />
               Thomanbauerhütte<br />
               Ramingstein, Österreich<br />
-              Telefon: {showPhone ? (
+              <strong>Telefon:</strong> {showPhone ? (
                 <a href={`tel:${phonePrefix}${phonePart1}${phonePart2}${phonePart3}`} className="hover:text-green-800">
                   {phonePrefix} {phonePart1} {phonePart2} {phonePart3}
                 </a>
               ) : (
                 <button 
                   onClick={() => setShowPhone(true)}
-                  className="text-blue-600 hover:text-blue-800 underline flex items-center"
+                  className="text-blue-600 hover:text-blue-800 underline"
                 >
-                  <Phone className="w-4 h-4 mr-1" /> Telefonnummer anzeigen
+                  Telefonnummer anzeigen
                 </button>
               )}<br />
-              E-Mail: {showEmail ? (
+              <strong>E-Mail:</strong> {showEmail ? (
                 <a href={`mailto:${emailName}@${emailDomain}`} className="hover:text-green-800">
                   {emailName}@{emailDomain}
                 </a>
@@ -64,106 +64,109 @@ export default function Legal() {
           </section>
 
           <section>
-            <h2 className="font-serif text-2xl mb-4">Erklärung zur Informationspflicht</h2>
-            
-            <h3 className="font-serif text-xl mb-2">Datenschutzerklärung</h3>
+            <h3 className="font-serif text-xl mb-4">Erklärung zur Informationspflicht</h3>
+            <p className="text-center"><strong>Datenschutzerklärung</strong></p>
             <p>
-              In folgender Datenschutzerklärung informieren wir Sie über die wichtigsten Aspekte der Datenverarbeitung im Rahmen unserer Webseite. 
-              Wir erheben und verarbeiten personenbezogene Daten nur auf Grundlage der gesetzlichen Bestimmungen (Datenschutzgrundverordnung, Telekommunikationsgesetz 2003).
+              In folgender Datenschutzerklärung informieren wir Sie über die wichtigsten Aspekte der Datenverarbeitung 
+              im Rahmen unserer Webseite. Wir erheben und verarbeiten personenbezogene Daten nur auf Grundlage der gesetzlichen 
+              Bestimmungen (Datenschutzgrundverordnung, Telekommunikationsgesetz 2003).
+            </p>
+            <p>
+              Sobald Sie als Benutzer auf unsere Webseite zugreifen oder diese besuchen wird Ihre IP-Adresse, Beginn sowie Beginn 
+              und Ende der Sitzung erfasst. Dies ist technisch bedingt und stellt somit ein berechtigtes Interesse iSv Art 6 Abs 1 lit f DSGVO.
             </p>
 
-            <h3 className="font-serif text-xl mb-2 mt-6">Datenerfassung beim Websitebesuch</h3>
+            <h5 className="font-serif text-lg mt-6 mb-2">Kontakt mit uns</h5>
             <p>
-              Sobald Sie als Benutzer auf unsere Webseite zugreifen oder diese besuchen, wird Ihre IP-Adresse, Beginn sowie Ende der Sitzung erfasst. 
-              Dies ist technisch bedingt und stellt somit ein berechtigtes Interesse iSv Art 6 Abs 1 lit f DSGVO dar.
+              Wenn Sie uns, entweder über unser Kontaktformular auf unserer Webseite, oder per Email kontaktieren, 
+              dann werden die von Ihnen an uns übermittelten Daten zwecks Bearbeitung Ihrer Anfrage oder für den Fall von weiteren 
+              Anschlussfragen für sechs Monate bei uns gespeichert. Es erfolgt, ohne Ihre Einwilligung, keine Weitergabe Ihrer übermittelten Daten.
             </p>
 
-            <h3 className="font-serif text-xl mb-2 mt-6">Kontakt mit uns</h3>
-            <p>
-              Wenn Sie uns über unser Kontaktformular auf unserer Webseite oder per E-Mail kontaktieren, werden die von Ihnen übermittelten Daten 
-              zwecks Bearbeitung Ihrer Anfrage oder für den Fall von weiteren Anschlussfragen für sechs Monate bei uns gespeichert. 
-              Es erfolgt ohne Ihre Einwilligung keine Weitergabe Ihrer übermittelten Daten.
-            </p>
-
-            <h3 className="font-serif text-xl mb-2 mt-6">Google Fonts</h3>
+            <h5 className="font-serif text-lg mt-6 mb-2">Google Fonts</h5>
             <p>
               Unsere Website verwendet Schriftarten von „Google Fonts". Der Dienstanbieter dieser Funktion ist:
             </p>
+            <ul className="list-disc pl-5">
+              <li>Google Ireland Limited Gordon House, Barrow Street Dublin 4. Ireland</li>
+            </ul>
+            <p>Tel: +353 1 543 1000</p>
             <p>
-              Google Ireland Limited<br />
-              Gordon House, Barrow Street<br />
-              Dublin 4, Ireland<br />
-              Tel: +353 1 543 1000
+              Beim Aufrufen dieser Webseite lädt Ihr Browser Schriftarten und speichert 
+              diese in den Cache. Da Sie, als Besucher der Webseite, Daten des 
+              Dienstanbieters empfangen kann Google unter Umständen Cookies auf Ihrem 
+              Rechner setzen oder analysieren.
             </p>
             <p>
-              Beim Aufrufen dieser Webseite lädt Ihr Browser Schriftarten und speichert diese in den Cache. 
-              Da Sie als Besucher der Webseite Daten des Dienstanbieters empfangen, kann Google unter Umständen Cookies auf Ihrem Rechner setzen oder analysieren.
+              Die Nutzung von „Google-Fonts" dient der Optimierung unserer Dienstleistung 
+              und der einheitlichen Darstellung von Inhalten. Dies stellt ein 
+              berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar.
+            </p>
+            <p>Weitere Informationen zu Google Fonts erhalten Sie unter folgendem Link:</p>
+            <ul className="list-disc pl-5">
+              <li>
+                <a 
+                  href="https://developers.google.com/fonts/faq" 
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  https://developers.google.com/fonts/faq
+                </a>
+              </li>
+            </ul>
+            <p>Weitere Informationen über den Umgang mit Nutzerdaten von Google können Sie der Datenschutzerklärung entnehmen:</p>
+            <ul className="list-disc pl-5">
+              <li>
+                <a 
+                  href="https://policies.google.com/privacy?hl=de" 
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  https://policies.google.com/privacy?hl=de
+                </a>
+                .
+              </li>
+            </ul>
+            <p>
+              Google verarbeitet die Daten auch in den USA, hat sich jedoch dem 
+              EU-US Privacy-Shield unterworfen.
             </p>
             <p>
-              Die Nutzung von „Google-Fonts" dient der Optimierung unserer Dienstleistung und der einheitlichen Darstellung von Inhalten. 
-              Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar.
-            </p>
-            <p>
-              Weitere Informationen:
-              <ul>
-                <li>
-                  <a 
-                    href="https://developers.google.com/fonts/faq" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-blue-600 hover:text-blue-800"
-                  >
-                    Google Fonts FAQ
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://policies.google.com/privacy?hl=de" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-blue-600 hover:text-blue-800"
-                  >
-                    Google Datenschutzerklärung
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://www.privacyshield.gov/EU-US-Framework" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-blue-600 hover:text-blue-800"
-                  >
-                    EU-US Privacy Shield
-                  </a>
-                </li>
-              </ul>
+              <a 
+                href="https://www.privacyshield.gov/EU-US-Framework" 
+                className="text-blue-600 hover:text-blue-800"
+              >
+                https://www.privacyshield.gov/EU-US-Framework
+              </a>
             </p>
 
-            <h3 className="font-serif text-xl mb-2 mt-6">Server-Log Files</h3>
+            <h5 className="font-serif text-lg mt-6 mb-2">Server-Log Files</h5>
             <p>
-              Diese Webseite und der damit verbundene Provider erhebt im Zuge der Webseitennutzung automatisch Informationen im Rahmen sogenannter „Server-Log Files". Dies betrifft insbesondere:
+              Diese Webseite und der damit verbundene Provider erhebt im Zuge der 
+              Webseitennutzung automatisch Informationen im Rahmen sogenannter 
+              „Server-Log Files". Dies betrifft insbesondere:
             </p>
-            <ul>
+            <ul className="list-disc pl-5">
               <li>IP-Adresse oder Hostname</li>
-              <li>Verwendeter Browser</li>
+              <li>den verwendeten Browser</li>
               <li>Aufenthaltsdauer auf der Webseite sowie Datum und Uhrzeit</li>
-              <li>Aufgerufene Seiten der Webseite</li>
+              <li>aufgerufene Seiten der Webseite</li>
               <li>Spracheinstellungen und Betriebssystem</li>
               <li>„Leaving-Page" (auf welcher URL hat der Benutzer die Webseite verlassen)</li>
               <li>ISP (Internet Service Provider)</li>
             </ul>
             <p>
-              Diese erhobenen Informationen werden nicht personenbezogen verarbeitet oder mit personenbezogenen Daten in Verbindung gebracht.
+              Diese erhobenen Informationen werden nicht personenbezogen verarbeitet oder 
+              mit personenbezogenen Daten in Verbindung gebracht.
             </p>
             <p>
-              Der Webseitenbetreiber behält es sich vor, im Falle von Bekanntwerden rechtswidriger Tätigkeiten, diese Daten auszuwerten oder zu überprüfen.
+              Der Webseitenbetreiber behält es sich vor, im Falle von Bekanntwerden 
+              rechtswidriger Tätigkeiten, diese Daten auszuwerten oder zu überprüfen.
             </p>
 
-            <h3 className="font-serif text-xl mb-2 mt-6">Ihre Rechte als Betroffener</h3>
+            <h5 className="font-serif text-lg mt-6 mb-2">Ihre Rechte als Betroffener</h5>
             <p>
-              Sie als Betroffener haben bezüglich Ihrer Daten, welche bei uns gespeichert sind, grundsätzlich ein Recht auf:
+              Sie als Betroffener haben bezüglich Ihrer Daten, welche bei uns gespeichert sind grundsätzlich ein Recht auf:
             </p>
-            <ul>
+            <ul className="list-disc pl-5">
               <li>Auskunft</li>
               <li>Löschung der Daten</li>
               <li>Berichtigung der Daten</li>
@@ -172,22 +175,26 @@ export default function Legal() {
               <li>Einschränkung</li>
             </ul>
             <p>
-              Wenn Sie vermuten, dass im Zuge der Verarbeitung Ihrer Daten Verstöße gegen das Datenschutzrecht passiert sind, 
-              so haben Sie die Möglichkeit, sich bei uns unter der angegeben Emailadresse oder der Datenschutzbehörde zu beschweren.
+              Wenn sie vermuten, dass im Zuge der Verarbeitung Ihrer Daten Verstöße gegen das Datenschutzrecht passiert sind, 
+              so haben Sie die Möglichkeit sich bei uns () oder der Datenschutzbehörde zu beschweren.
+            </p>
+
+            <h5 className="font-serif text-lg mt-6 mb-2">Sie erreichen uns unter folgenden Kontaktdaten:</h5>
+            <p>
+              <strong>Webseitenbetreiber:</strong> Leonhard Kendlbacher<br />
+              <strong>Telefonnummer:</strong><br />
+              <strong>Email:</strong>
+            </p>
+
+            <p className="mt-8">
+              Quelle: <a 
+                href="https://www.fairesrecht.at/kostenlos-datenschutzerklaerung-erstellen-generator.php" 
+                className="text-blue-600 hover:text-blue-800"
+              >
+                Datenschutzgenerator Österreich DSGVO
+              </a>
             </p>
           </section>
-
-          <p className="mt-8 text-sm text-gray-600">
-            Stand: {new Date().toLocaleDateString('de-AT')}<br />
-            Quelle: <a 
-              href="https://www.fairesrecht.at/kostenlos-datenschutzerklaerung-erstellen-generator.php" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-blue-600 hover:text-blue-800"
-            >
-              Datenschutz Österreich DSGVO
-            </a>
-          </p>
         </div>
       </div>
     </>

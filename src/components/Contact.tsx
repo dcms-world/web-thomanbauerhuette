@@ -31,8 +31,8 @@ export default function Contact() {
   const phonePart2 = '226';
   const phonePart3 = '0300';
 
-  const emailName = 'thomanbauerhuette';
-  const emailDomain = 'hotmail.com';
+  const emailName = 'contact';
+  const emailDomain = 'example.com';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -173,7 +173,7 @@ export default function Contact() {
             
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey="DEIN_RECAPTCHA_SITE_KEY"
+              sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
             />
             
             <button
