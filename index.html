@@ -7,8 +7,29 @@
     <title>Thomanbauerhütte - Ihre Auszeit in den Bergen</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
     <meta name="description" content="Erleben Sie unvergessliche Momente in unserer rustikalen Berghütte auf 1700m Höhe in den Nockbergen. Perfekt für Familien und kleine Gruppen.">
+    <style>
+      #noscript-message {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #d32f2f;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        z-index: 9999;
+      }
+    </style>
   </head>
   <body>
+    <noscript>
+      <div id="noscript-message">
+        <p>
+          JavaScript ist deaktiviert. Bitte aktivieren Sie JavaScript in Ihren Browsereinstellungen, 
+          um alle Funktionen dieser Website nutzen zu können.
+        </p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,8 +1,7 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Mail, Phone } from 'lucide-react';
-import ReCAPTCHA from 'react-google-recaptcha';
 
-export default function Contact() {
+function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,8 +14,6 @@ export default function Contact() {
     type: 'success' | 'error' | null;
     message: string;
   }>({ type: null, message: '' });
-  
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handlePhoneClick = () => {
     setShowPhone(true);
@@ -31,31 +28,21 @@ export default function Contact() {
   const phonePart2 = '226';
   const phonePart3 = '0300';
 
-  const emailName = 'contact';
-  const emailDomain = 'example.com';
+  const emailName = 'huette';
+  const emailDomain = 'thomanbauer.at';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const recaptchaValue = recaptchaRef.current?.getValue();
-    if (!recaptchaValue) {
-      setStatus({
-        type: 'error',
-        message: 'Bitte bestätigen Sie, dass Sie kein Roboter sind.'
-      });
-      return;
-    }
+
+    const formDataToSend = new FormData();
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('message', formData.message);
 
     try {
       const response = await fetch('/contact.php', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          recaptcha: recaptchaValue
-        }),
+        body: formDataToSend
       });
 
       const data = await response.json();
@@ -70,7 +57,6 @@ export default function Contact() {
           email: '', 
           message: '' 
         });
-        recaptchaRef.current?.reset();
       } else {
         setStatus({
           type: 'error',
@@ -78,6 +64,7 @@ export default function Contact() {
         });
       }
     } catch (error) {
+      console.error('Submission error:', error);
       setStatus({
         type: 'error',
         message: 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.'
@@ -171,11 +158,6 @@ export default function Contact() {
               ></textarea>
             </div>
             
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-            />
-            
             <button
               type="submit"
               className="bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors"
@@ -188,3 +170,5 @@ export default function Contact() {
     </section>
   );
 }
+
+export default Contact;

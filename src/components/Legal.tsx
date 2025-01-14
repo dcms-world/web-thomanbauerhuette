@@ -7,8 +7,8 @@ export default function Legal() {
   const [showEmail, setShowEmail] = useState(false);
   const [showPhone, setShowPhone] = useState(false);
 
-  const emailName = 'contact';
-  const emailDomain = 'example.com';
+  const emailName = 'huette';
+  const emailDomain = 'thomanbauer.at';
   const phonePrefix = '+43';
   const phonePart1 = '664';
   const phonePart2 = '6355';
@@ -176,14 +176,7 @@ export default function Legal() {
             </ul>
             <p>
               Wenn sie vermuten, dass im Zuge der Verarbeitung Ihrer Daten Verstöße gegen das Datenschutzrecht passiert sind, 
-              so haben Sie die Möglichkeit sich bei uns () oder der Datenschutzbehörde zu beschweren.
-            </p>
-
-            <h5 className="font-serif text-lg mt-6 mb-2">Sie erreichen uns unter folgenden Kontaktdaten:</h5>
-            <p>
-              <strong>Webseitenbetreiber:</strong> Leonhard Kendlbacher<br />
-              <strong>Telefonnummer:</strong><br />
-              <strong>Email:</strong>
+              so haben Sie die Möglichkeit sich bei uns ({emailName}@{emailDomain}) oder der Datenschutzbehörde zu beschweren.
             </p>
 
             <p className="mt-8">

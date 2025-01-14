@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /contact.php
 
-Sitemap: https://www.thomanbauerhuette.at/sitemap.xml
+Sitemap: https://huette.thomanbauer.at/sitemap.xml

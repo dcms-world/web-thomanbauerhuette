@@ -49,3 +49,6 @@ chmod +x deploy.sh
 - Check SSH connectivity
 - Verify server path exists
 - Ensure correct file permissions
+
+### Domain
+- Primary Domain: https://huette.thomanbauer.at/
