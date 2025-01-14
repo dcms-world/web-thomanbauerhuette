@@ -1,8 +1,17 @@
 export default function About() {
   return (
-    <section className="py-20 bg-stone-100" id="about">
+    <section 
+      className="py-20 bg-stone-100" 
+      id="about" 
+      aria-labelledby="about-heading"
+    >
       <div className="container mx-auto px-4">
-        <h2 className="font-serif text-4xl text-center mb-12">Über uns</h2>
+        <h2 
+          id="about-heading" 
+          className="font-serif text-4xl text-center mb-12"
+        >
+          Über uns
+        </h2>
         <div className="max-w-3xl mx-auto text-lg leading-relaxed space-y-6">
           <p>
             Auf einer Höhe von 1700 Metern, inmitten des herrlichen Bergpanoramas der Nockberge und umgeben von

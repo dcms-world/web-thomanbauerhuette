@@ -3,12 +3,14 @@ import { IMAGES } from '../constants/images';
 
 export default function Header() {
   return (
-    <header className="relative h-screen">
+    <header className="relative h-screen" aria-label="Thomanbauerhütte Hauptbild">
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: `url("${IMAGES.HEADER}")`,
         }}
+        role="img"
+        aria-label="Außenansicht der Thomanbauerhütte"
       >
         <div className="absolute inset-0 bg-black/40" />
       </div>
@@ -20,7 +22,10 @@ export default function Header() {
         <p className="text-lg sm:text-xl md:text-2xl mb-12 text-center">
           1700m · Nockberge · Naturerlebnis
         </p>
-        <ChevronDown className="animate-bounce w-8 h-8" />
+        <ChevronDown 
+          className="animate-bounce w-8 h-8" 
+          aria-hidden="true"
+        />
       </div>
     </header>
   );

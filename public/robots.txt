@@ -3,3 +3,10 @@ Allow: /
 Disallow: /contact.php
 
 Sitemap: https://huette.thomanbauer.at/sitemap.xml
+
+# Crawl-Verzögerung
+Crawl-delay: 10
+
+# Zusätzliche Sicherheitseinstellungen
+Disallow: /src/
+Disallow: /node_modules/
