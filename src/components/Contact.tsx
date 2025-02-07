@@ -8,28 +8,10 @@ function Contact() {
     message: ''
   });
 
-  const [showPhone, setShowPhone] = useState(false);
-  const [showEmail, setShowEmail] = useState(false);
   const [status, setStatus] = useState<{
     type: 'success' | 'error' | null;
     message: string;
   }>({ type: null, message: '' });
-
-  const handlePhoneClick = () => {
-    setShowPhone(true);
-  };
-
-  const handleEmailClick = () => {
-    setShowEmail(true);
-  };
-
-  const phonePrefix = '+43';
-  const phonePart1 = '664';
-  const phonePart2 = '226';
-  const phonePart3 = '0300';
-
-  const emailName = 'huette';
-  const emailDomain = 'thomanbauer.at';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -82,33 +64,15 @@ function Contact() {
             <div className="space-y-4">
               <div className="flex items-center">
                 <Phone className="w-5 h-5 mr-3" />
-                {showPhone ? (
-                  <a href={`tel:${phonePrefix}${phonePart1}${phonePart2}${phonePart3}`} className="hover:text-green-800">
-                    {phonePrefix} {phonePart1} {phonePart2} {phonePart3}
-                  </a>
-                ) : (
-                  <button 
-                    onClick={handlePhoneClick}
-                    className="text-left hover:text-green-800"
-                  >
-                    Telefonnummer anzeigen
-                  </button>
-                )}
+                <a href="tel:+436642260300" className="hover:text-green-800">
+                  +43 664 226 0300
+                </a>
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 mr-3" />
-                {showEmail ? (
-                  <a href={`mailto:${emailName}@${emailDomain}`} className="hover:text-green-800">
-                    {emailName}@{emailDomain}
-                  </a>
-                ) : (
-                  <button 
-                    onClick={handleEmailClick}
-                    className="text-left hover:text-green-800"
-                  >
-                    E-Mail Adresse anzeigen
-                  </button>
-                )}
+                <a href="mailto:huette@thomanbauer.at" className="hover:text-green-800">
+                  huette@thomanbauer.at
+                </a>
               </div>
             </div>
           </div>

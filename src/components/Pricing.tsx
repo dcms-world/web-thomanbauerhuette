@@ -56,7 +56,7 @@ export default function Pricing() {
                   <strong>Wichtig:</strong> Die Hütte ist besenrein zu verlassen
                 </li>
                 <li className="text-gray-600">
-                  <strong>Müll:</strong> Müllsäcke sind vor Ort. Der Müll ist selbst zu entsorgen.
+                  <strong>Müll:</strong> Müllsäcke sind vor Ort. Der Müll ist bitte selbst zu entsorgen.
                 </li>
               </ul>
             </div>
