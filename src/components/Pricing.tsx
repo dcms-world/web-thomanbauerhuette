@@ -41,19 +41,19 @@ export default function Pricing() {
                 <li className="grid grid-cols-[auto_1fr] gap-2 items-center">
                   <div className="flex items-center">
                     <Euro className="w-5 h-5 text-green-800 mr-2" />
-                    <span className="text-xl font-semibold">2,35</span>
+                    <span className="text-xl font-semibold">2,85</span>
                   </div>
-                  <span className="text-gray-600">Tourismusabgabe pro Person/Nacht (ab 15 Jahren)</span>
+                  <span className="text-gray-600">Tourismus & Mobilitätsabgabe pro Person/Nacht (ab 15 Jahren)</span>
                 </li>
                 <li className="grid grid-cols-[auto_1fr] gap-2 items-center">
                   <div className="flex items-center">
                     <Euro className="w-5 h-5 text-green-800 mr-2" />
                     <span className="text-xl font-semibold">10</span>
                   </div>
-                  <span className="text-gray-600">pro Hund/Nacht</span>
+                  <span className="text-gray-600">pro Hund/Nacht (Leinenpflicht)</span>
                 </li>
                 <li className="text-gray-600 mt-4">
-                  <strong>Wichtig:</strong> Die Hütte ist besenrein zu verlassen
+                  <strong>Wichtig:</strong> Die Hütte ist besenrein zu verlassen.
                 </li>
                 <li className="text-gray-600">
                   <strong>Müll:</strong> Müllsäcke sind vor Ort. Der Müll ist bitte selbst zu entsorgen.

@@ -19,7 +19,7 @@ const amenities = [
   {
     icon: WifiOff,
     title: "Digital Detox",
-    description: "Kein Strom & kein Mobilfunk"
+    description: "Kein Internet & kein Mobilfunk"
   }
 ];
 

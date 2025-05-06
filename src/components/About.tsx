@@ -26,6 +26,9 @@ export default function About() {
             In der Wohnstube mit Esstisch und rustikalem Holzofen lässt es sich hervorragend entspannen. Der Vorraum
             und die Zimmer sind mit Kästen ausgestattet, sodass ausreichend Platz zum Verstauen vom Gepäck vorhanden ist.
           </p>
+          <p>
+            Die Hütte verfügt über eine kleine Photovoltaikanlage, die eine begrenzte Stromversorgung für Licht und das Laden kleiner Geräte ermöglicht – ideal für die Versorgung während des Aufenthalts.
+</p>
         </div>
       </div>
     </section>
