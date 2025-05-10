@@ -41,7 +41,7 @@ export default function Pricing() {
                 <li className="grid grid-cols-[auto_1fr] gap-2 items-center">
                   <div className="flex items-center">
                     <Euro className="w-5 h-5 text-green-800 mr-2" />
-                    <span className="text-xl font-semibold">2,85</span>
+                    <span className="text-xl font-semibold">2,80</span>
                   </div>
                   <span className="text-gray-600">Tourismus & Mobilitätsabgabe pro Person/Nacht (ab 15 Jahren)</span>
                 </li>
