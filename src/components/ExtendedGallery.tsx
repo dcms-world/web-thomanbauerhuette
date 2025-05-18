@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Navigation from './Navigation';
 import { 
@@ -43,6 +43,7 @@ export default function ExtendedGallery() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [filteredImages, setFilteredImages] = useState(galleryImages);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     setFilteredImages(
@@ -53,31 +54,63 @@ export default function ExtendedGallery() {
     setSelectedImageIndex(null);
   }, [activeCategory]);
 
-  const handlePrevImage = () => {
+  const handlePrevImage = useCallback(() => {
     if (selectedImageIndex === null) return;
     setSelectedImageIndex(
       selectedImageIndex === 0 ? filteredImages.length - 1 : selectedImageIndex - 1
     );
-  };
+  }, [selectedImageIndex, filteredImages]);
 
-  const handleNextImage = () => {
+  const handleNextImage = useCallback(() => {
     if (selectedImageIndex === null) return;
     setSelectedImageIndex(
       selectedImageIndex === filteredImages.length - 1 ? 0 : selectedImageIndex + 1
     );
-  };
+  }, [selectedImageIndex, filteredImages]);
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (selectedImageIndex === null) return;
     if (e.key === 'ArrowLeft') handlePrevImage();
     if (e.key === 'ArrowRight') handleNextImage();
     if (e.key === 'Escape') setSelectedImageIndex(null);
+  }, [selectedImageIndex, handlePrevImage, handleNextImage]);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!touchStartX.current || selectedImageIndex === null) return;
+
+    const touchEndX = e.touches[0].clientX;
+    const diffX = touchStartX.current - touchEndX;
+
+    if (Math.abs(diffX) > 50) {
+      if (diffX > 0) {
+        // Swipe left (next image)
+        handleNextImage();
+      } else {
+        // Swipe right (previous image)
+        handlePrevImage();
+      }
+      touchStartX.current = null;
+    }
+  }, [selectedImageIndex, handleNextImage, handlePrevImage]);
+
+  const handleTouchEnd = useCallback(() => {
+    touchStartX.current = null;
+  }, []);
+
+  const handleImageClick = () => {
+    if (selectedImageIndex !== null) {
+      handleNextImage();
+    }
   };
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedImageIndex, filteredImages]);
+  }, [selectedImageIndex, filteredImages, handleKeyDown]);
 
   const categoryIcons = {
     all: AllIcon,
@@ -134,33 +167,51 @@ export default function ExtendedGallery() {
             {selectedImageIndex !== null && (
               <div 
                 className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
-                onClick={(e) => {
-                  if (e.target === e.currentTarget) setSelectedImageIndex(null);
-                }}
+                onClick={() => setSelectedImageIndex(null)}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
               >
-                <button
-                  onClick={() => setSelectedImageIndex(null)}
-                  className="absolute top-4 right-4 text-white hover:text-gray-300"
+                <div 
+                  className="max-w-[90%] max-h-[90%] relative"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleImageClick();
+                  }}
                 >
-                  <X className="w-8 h-8" />
-                </button>
-                <button
-                  onClick={handlePrevImage}
-                  className="absolute left-4 text-white hover:text-gray-300"
-                >
-                  <ChevronLeft className="w-8 h-8" />
-                </button>
-                <button
-                  onClick={handleNextImage}
-                  className="absolute right-4 text-white hover:text-gray-300"
-                >
-                  <ChevronRight className="w-8 h-8" />
-                </button>
-                <img
-                  src={filteredImages[selectedImageIndex].src}
-                  alt={filteredImages[selectedImageIndex].alt}
-                  className="max-w-full max-h-[90vh] object-contain"
-                />
+                  <img
+                    src={filteredImages[selectedImageIndex].src}
+                    alt={filteredImages[selectedImageIndex].alt}
+                    className="max-w-full max-h-[90vh] object-contain"
+                  />
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedImageIndex(null);
+                    }}
+                    className="absolute top-4 right-4 text-white hover:text-gray-300"
+                  >
+                    <X className="w-8 h-8" />
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePrevImage();
+                    }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300"
+                  >
+                    <ChevronLeft className="w-8 h-8" />
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNextImage();
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300"
+                  >
+                    <ChevronRight className="w-8 h-8" />
+                  </button>
+                </div>
               </div>
             )}
           </div>

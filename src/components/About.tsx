@@ -28,7 +28,7 @@ export default function About() {
           </p>
           <p>
             Die Hütte verfügt über eine kleine Photovoltaikanlage, die eine begrenzte Stromversorgung für Licht und das Laden kleiner Geräte ermöglicht – ideal für die Versorgung während des Aufenthalts.
-</p>
+          </p>
         </div>
       </div>
     </section>

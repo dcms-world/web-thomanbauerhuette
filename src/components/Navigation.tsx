@@ -11,16 +11,27 @@ export default function Navigation() {
     { href: '/galerie', label: 'Galerie' },
   ];
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   useEffect(() => {
     // Scroll to top when route changes
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="font-serif text-lg sm:text-xl text-green-800 truncate max-w-[200px] sm:max-w-none">
+          <Link 
+            to="/" 
+            className="font-serif text-lg sm:text-xl text-green-800 truncate max-w-[200px] sm:max-w-none"
+            onClick={scrollToTop}
+          >
             Thomanbauerhütte
           </Link>
 
@@ -42,6 +53,7 @@ export default function Navigation() {
                 className={`hover:text-green-800 transition-colors ${
                   location.pathname === link.href ? 'text-green-800' : 'text-gray-600'
                 }`}
+                onClick={scrollToTop}
               >
                 {link.label}
               </Link>
@@ -59,7 +71,10 @@ export default function Navigation() {
                 className={`block py-2 hover:text-green-800 transition-colors ${
                   location.pathname === link.href ? 'text-green-800' : 'text-gray-600'
                 }`}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollToTop();
+                }}
               >
                 {link.label}
               </Link>
