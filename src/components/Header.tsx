@@ -49,7 +49,7 @@ export default function Header() {
         role="img"
         aria-label="Außenansicht der Thomanbauerhütte"
       >
-        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
       <div 
         ref={contentRef}
@@ -60,7 +60,7 @@ export default function Header() {
       >
         <h1 className="font-serif text-3xl sm:text-5xl md:text-7xl text-center mb-6 tracking-tight">
           <span className="block sm:inline text-modern-100">Auszeit auf der</span>{' '}
-          <span className="block sm:inline text-white drop-shadow-lg">Thomanbauerhütte</span>
+          <span className="block sm:inline text-white drop-shadow-lg will-change-transform">Thomanbauerhütte</span>
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl mb-12 text-center text-modern-200 font-sans font-light tracking-wide">
           1700m · Nockberge · Naturerlebnis
