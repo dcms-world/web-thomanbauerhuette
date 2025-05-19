@@ -49,7 +49,7 @@ export default function Header() {
         role="img"
         aria-label="Außenansicht der Thomanbauerhütte"
       >
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
       <div 
         ref={contentRef}

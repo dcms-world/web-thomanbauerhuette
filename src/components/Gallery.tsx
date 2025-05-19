@@ -79,13 +79,25 @@ export default function Gallery() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <img
-                  src={image.url}
-                  alt={image.alt}
-                  className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
-                  loading="lazy"
-                  onClick={() => handleExpandImage(image, index)}
-                />
+                {image.type === 'video' ? (
+                  <video
+                    src={image.url}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
+                    onClick={() => handleExpandImage(image, index)}
+                  />
+                ) : (
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
+                    loading="lazy"
+                    onClick={() => handleExpandImage(image, index)}
+                  />
+                )}
                 {hoveredIndex === index && (
                   <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <button 
