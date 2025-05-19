@@ -42,9 +42,8 @@ export default function Gallery() {
                   playsInline
                   webkit-playsinline
                   x5-playsinline
-                  controls
                   preload="metadata"
-                  className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-105 video-no-controls"
                 />
               ) : (
                 <img

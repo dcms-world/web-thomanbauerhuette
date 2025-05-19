@@ -114,3 +114,12 @@ input[type="date"]:focus::before {
 input[type="date"]:valid::before {
   display: none;
 }
+
+/* Video Controls Styling */
+.video-no-controls::-webkit-media-controls {
+  display: none !important;
+}
+
+.video-no-controls::-webkit-media-controls-enclosure {
+  display: none !important;
+}
