@@ -52,3 +52,15 @@ chmod +x deploy.sh
 
 ### Domain
 - Primary Domain: https://huette.thomanbauer.at/
+
+### Videos
+```
+ffmpeg -i input.mov -vcodec libx264 -crf 30 -preset veryslow -an -movflags +faststart output.mp4
+```
+Parametererklärung:
+	•	-vcodec libx264: Verwendet den H.264 Codec.
+	•	-crf 30: Höhere Zahl = stärkere Komprimierung (Standard: 23, höhere Werte = kleinere Dateien).
+	•	-preset veryslow: Maximale Kompression auf Kosten der Geschwindigkeit.
+	•	-an: Kein Audio.
+	•	-movflags +faststart: Optimiert die Datei für das Streaming.
+
