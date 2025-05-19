@@ -82,12 +82,19 @@ export default function Gallery() {
                 {image.type === 'video' ? (
                   <video
                     src={image.url}
-                    autoPlay
                     muted
                     loop
                     playsInline
                     className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-110 group-hover:brightness-75"
                     onClick={() => handleExpandImage(image, index)}
+                    onLoadedData={(e) => {
+                      const videoElement = e.currentTarget;
+                      if (document.readyState === 'complete') {
+                        videoElement.play();
+                      } else {
+                        window.addEventListener('load', () => videoElement.play());
+                      }
+                    }}
                   />
                 ) : (
                   <img
