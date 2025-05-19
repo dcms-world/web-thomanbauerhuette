@@ -17,7 +17,7 @@ export const IMAGES = {
       type: 'image'
     },
     {
-      url: '/videos/neuer_zaun.webm',
+      url: '/videos/neuer_zaun.mp4',
       alt: 'Video vom neuen Zaun',
       type: 'video'
     },
