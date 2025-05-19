@@ -1,8 +1,21 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Image as ImageIcon } from 'lucide-react';
 import { IMAGES } from '../constants/images';
+import { useEffect, useRef } from 'react';
 
 export default function Gallery() {
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  useEffect(() => {
+    videoRefs.current.forEach(video => {
+      if (video) {
+        video.play().catch(error => {
+          console.warn('Autoplay was prevented:', error);
+        });
+      }
+    });
+  }, []);
+
   return (
     <section className="py-20 bg-neutral-50" id="gallery">
       <div className="container mx-auto px-4 animate-fade-in">
@@ -17,19 +30,21 @@ export default function Gallery() {
             >
               {image.type === 'video' ? (
                 <video
+                  ref={(el) => {
+                    if (videoRefs.current) {
+                      videoRefs.current.push(el);
+                    }
+                  }}
                   src={image.url}
                   muted
                   loop
+                  autoPlay
                   playsInline
+                  webkit-playsinline
+                  x5-playsinline
+                  controls
+                  preload="metadata"
                   className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-105"
-                  onLoadedData={(e) => {
-                    const videoElement = e.currentTarget;
-                    if (document.readyState === 'complete') {
-                      videoElement.play();
-                    } else {
-                      window.addEventListener('load', () => videoElement.play());
-                    }
-                  }}
                 />
               ) : (
                 <img
