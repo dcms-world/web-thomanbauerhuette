@@ -1,19 +1,33 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Image as ImageIcon } from 'lucide-react';
-import { IMAGES } from '../constants/images';
-import { useEffect, useRef } from 'react';
+
+interface MediaData {
+  url: string;
+  alt: string;
+  type: 'image' | 'video';
+}
 
 export default function Gallery() {
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [media, setMedia] = useState<MediaData[]>([]);
 
   useEffect(() => {
-    videoRefs.current.forEach(video => {
-      if (video) {
-        video.play().catch(error => {
-          console.warn('Autoplay was prevented:', error);
-        });
+    const fetchMedia = async () => {
+      try {
+        const response = await fetch('/gallery_manager.php?action=impressions');
+        const data: string[] = await response.json();
+        const formattedMedia: MediaData[] = data.map((url: string) => ({
+          url: url,
+          alt: 'Impressionen',
+          type: url.toLowerCase().endsWith('.mp4') ? 'video' : 'image'
+        }));
+        setMedia(formattedMedia);
+      } catch (error) {
+        console.error('Fehler beim Laden der Medien:', error);
       }
-    });
+    };
+
+    fetchMedia();
   }, []);
 
   return (
@@ -23,19 +37,14 @@ export default function Gallery() {
           Impressionen
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {IMAGES.GALLERY.map((image, index) => (
+          {media.map((item, index) => (
             <div 
               key={index} 
               className="aspect-square overflow-hidden rounded-2xl shadow-lg group"
             >
-              {image.type === 'video' ? (
+              {item.type === 'video' ? (
                 <video
-                  ref={(el) => {
-                    if (videoRefs.current) {
-                      videoRefs.current.push(el);
-                    }
-                  }}
-                  src={image.url}
+                  src={item.url}
                   muted
                   loop
                   autoPlay
@@ -47,8 +56,8 @@ export default function Gallery() {
                 />
               ) : (
                 <img
-                  src={image.url}
-                  alt={image.alt}
+                  src={item.url}
+                  alt={item.alt}
                   className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-105"
                   loading="lazy"
                 />
