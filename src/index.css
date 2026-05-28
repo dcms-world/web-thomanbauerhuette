@@ -32,21 +32,22 @@
 
 /* Modern Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: theme('colors.neutral.100');
+  background: theme('colors.alpine.50');
 }
 
 ::-webkit-scrollbar-thumb {
-  background: theme('colors.modern.500');
-  border-radius: 10px;
+  background: theme('colors.alpine.300');
+  border-radius: 9999px;
   transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: theme('colors.modern.600');
+  background: theme('colors.alpine.500');
 }
 
 /* Smooth Scroll Behavior */
@@ -54,13 +55,37 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Typography Balance & Readability */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p, li {
+  text-wrap: pretty;
+}
+
+/* Glassmorphism Utilities */
+.glassmorphism {
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glassmorphism-dark {
+  background-color: rgba(31, 46, 26, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 /* Subtle Animations and Transitions */
 .animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-slide-up {
-  animation: slideUp 0.6s ease-out forwards;
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeIn {
@@ -81,7 +106,7 @@ html {
 
 /* Enhanced Focus States */
 *:focus {
-  outline: 2px solid theme('colors.modern.400');
+  outline: 2px solid theme('colors.alpine.500');
   outline-offset: 2px;
   transition: outline 0.2s ease;
 }

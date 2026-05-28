@@ -1,6 +1,5 @@
 import Header from './components/Header';
 import About from './components/About';
-import Gallery from './components/Gallery';
 import Details from './components/Details';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
@@ -17,7 +16,6 @@ function MainContent() {
       <Navigation />
       <Header />
       <About />
-      <Gallery />
       <Details />
       <Pricing />
       <Booking />

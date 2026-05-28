@@ -17,45 +17,45 @@ export default function Legal() {
   return (
     <>
       <Navigation />
-      <div className="min-h-screen bg-white pt-16">
-        <div className="container mx-auto px-4 max-w-4xl py-20 prose">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="font-serif text-4xl m-0">Impressum & Datenschutz</h1>
+      <div className="min-h-screen bg-alpine-50/20 pt-20">
+        <div className="container mx-auto px-4 max-w-3xl py-20 prose prose-stone lg:prose-lg">
+          <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-6 mb-12 pb-6 border-b border-alpine-150">
+            <h1 className="font-serif text-3xl sm:text-4xl m-0 font-bold text-alpine-850">Impressum & Datenschutz</h1>
             <Link 
               to="/" 
-              className="flex items-center gap-2 bg-green-800 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-alpine-800 text-white px-5 py-2.5 rounded-full hover:bg-alpine-700 active:bg-alpine-900 transition-colors shadow-md text-sm font-semibold"
             >
-              <Home className="w-5 h-5" />
+              <Home className="w-4 h-4 text-sunshine-300" />
               Zur Startseite
             </Link>
           </div>
           
-          <section className="mb-12">
-            <h2 className="font-serif text-2xl mb-4">Impressum</h2>
-            <p>
+          <section className="mb-12 bg-white border border-alpine-150 rounded-3xl p-8 shadow-sm">
+            <h2 className="font-serif text-2xl mb-6 text-alpine-800 font-bold">Impressum</h2>
+            <p className="text-base text-alpine-900 leading-relaxed font-light">
               <strong>Webseitenbetreiber:</strong> Leonhard Kendlbacher<br />
               Thomanbauerhütte<br />
-              Ramingstein, Österreich<br />
+              Ramingstein, Österreich<br /><br />
               <strong>Telefon:</strong> {showPhone ? (
-                <a href={`tel:${phonePrefix}${phonePart1}${phonePart2}${phonePart3}`} className="hover:text-green-800">
+                <a href={`tel:${phonePrefix}${phonePart1}${phonePart2}${phonePart3}`} className="text-alpine-800 hover:text-sunshine-600 font-semibold underline decoration-sunshine-400">
                   {phonePrefix} {phonePart1} {phonePart2} {phonePart3}
                 </a>
               ) : (
                 <button 
                   onClick={() => setShowPhone(true)}
-                  className="text-blue-600 hover:text-blue-800 underline"
+                  className="text-sunshine-600 hover:text-sunshine-700 font-semibold focus:underline outline-none"
                 >
                   Telefonnummer anzeigen
                 </button>
               )}<br />
               <strong>E-Mail:</strong> {showEmail ? (
-                <a href={`mailto:${emailName}@${emailDomain}`} className="hover:text-green-800">
+                <a href={`mailto:${emailName}@${emailDomain}`} className="text-alpine-800 hover:text-sunshine-600 font-semibold underline decoration-sunshine-400">
                   {emailName}@{emailDomain}
                 </a>
               ) : (
                 <button 
                   onClick={() => setShowEmail(true)}
-                  className="text-blue-600 hover:text-blue-800 underline"
+                  className="text-sunshine-600 hover:text-sunshine-700 font-semibold focus:underline outline-none"
                 >
                   E-Mail anzeigen
                 </button>
