@@ -4,27 +4,27 @@ import { Images } from 'lucide-react';
 
 const slideshowImages = [
   { 
-    url: "/images/impressions/huette-ganz-aussen.jpg", 
+    url: "/images/impressions/huette-ganz-aussen.webp", 
     label: "Hüttenidylle", 
     desc: "Ein Refugium der reinen Entspannung" 
   },
   { 
-    url: "/images/impressions/bach-bruecke.jpg", 
+    url: "/images/impressions/bach-bruecke.webp", 
     label: "Natur pur", 
     desc: "Plätschernde Gebirgsbäche direkt vor der Tür" 
   },
   { 
-    url: "/images/impressions/holzstapel.jpg", 
+    url: "/images/impressions/holzstapel.webp", 
     label: "Urige Wärme", 
     desc: "Holz vor der Hütte für gemütliche Ofenstunden" 
   },
   { 
-    url: "/images/impressions/kuehe_strasse.jpg", 
+    url: "/images/impressions/kuehe_strasse.webp", 
     label: "Almleben", 
     desc: "Traditionelle Landwirtschaft hautnah erleben" 
   },
   { 
-    url: "/images/impressions/umgebung-10.jpg", 
+    url: "/images/impressions/umgebung-10.webp", 
     label: "Bergpanorama", 
     desc: "Wunderbarer Weitblick auf 1700 Meter Höhe" 
   }
