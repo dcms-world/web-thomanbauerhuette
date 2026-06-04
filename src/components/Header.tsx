@@ -60,13 +60,13 @@ export default function Header() {
         {/* Modern Alpine Badge Pills */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-16 max-w-2xl px-4">
           <span className="px-4 py-2 rounded-full border border-white/20 bg-alpine-950/40 backdrop-blur-md text-xs sm:text-sm font-semibold tracking-wider uppercase text-white shadow-lg">
-            🏔️ 1700m Seehöhe
+            1700m Seehöhe
           </span>
           <span className="px-4 py-2 rounded-full border border-white/20 bg-alpine-950/40 backdrop-blur-md text-xs sm:text-sm font-semibold tracking-wider uppercase text-white shadow-lg">
-            🌲 Nockberge
+            Nockberge
           </span>
           <span className="px-4 py-2 rounded-full border border-white/20 bg-alpine-950/40 backdrop-blur-md text-xs sm:text-sm font-semibold tracking-wider uppercase text-white shadow-lg">
-            🔌 Digital Detox
+            Digital Detox
           </span>
         </div>
 

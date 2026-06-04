@@ -77,7 +77,7 @@ export default function About() {
                 Die urige Wohnstube mit großem Esstisch und einem rustikalen Holzofen lädt zum gemeinsamen Verweilen, Kochen und Genießen ein. Ausreichend Stauraum für Ihr Gepäck ist im Vorraum und in den Schlafräumen vorhanden.
               </p>
               <p className="bg-alpine-100/50 p-4 rounded-xl border border-alpine-200/50 text-sm sm:text-base text-alpine-850">
-                ⭐ <strong>Autarke Stromversorgung:</strong> Die Hütte verfügt über eine kleine Photovoltaikanlage, die eine umweltfreundliche Stromversorgung für Beleuchtung und das Laden kleinerer Geräte ermöglicht.
+                <strong>Autarke Stromversorgung:</strong> Die Hütte verfügt über eine kleine Photovoltaikanlage, die eine umweltfreundliche Stromversorgung für Beleuchtung und das Laden kleinerer Geräte ermöglicht.
               </p>
             </div>
           </div>
