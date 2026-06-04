@@ -1,4 +1,4 @@
-import { Bed, Flame, Droplets, WifiOff } from 'lucide-react';
+import { Bed, Flame, Droplets, WifiOff, Sparkles } from 'lucide-react';
 
 const amenities = [
   {
@@ -23,6 +23,12 @@ const amenities = [
   }
 ];
 
+const comfortItems = [
+  "Spültoilette",
+  "Solardusche im Außenbereich",
+  "Kühlschrank & Filterkaffeemaschine",
+];
+
 export default function Details() {
   return (
     <section className="py-24 bg-white" id="details">
@@ -36,11 +42,11 @@ export default function Details() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {amenities.map((item, index) => (
-            <div 
-              key={index} 
-              className="group bg-alpine-50/40 border border-alpine-100 rounded-3xl p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-white hover:border-alpine-200"
+            <div
+              key={index}
+              className={`group bg-alpine-50/40 border border-alpine-100 rounded-3xl p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-white hover:border-alpine-200 ${index < 3 ? 'lg:col-span-2' : 'lg:col-span-3'}`}
             >
               <div className="w-16 h-16 mx-auto mb-6 bg-alpine-100 text-alpine-800 rounded-2xl flex items-center justify-center shadow-inner transition-colors duration-300 group-hover:bg-sunshine-100 group-hover:text-sunshine-800">
                 <item.icon className="w-8 h-8" strokeWidth={1.5} />
@@ -53,6 +59,23 @@ export default function Details() {
               </p>
             </div>
           ))}
+
+          {/* Komfort-Karte */}
+          <div className="group bg-alpine-50/40 border border-alpine-100 rounded-3xl p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:bg-white hover:border-alpine-200 md:col-span-2 lg:col-span-3">
+            <div className="w-16 h-16 mx-auto mb-6 bg-alpine-100 text-alpine-800 rounded-2xl flex items-center justify-center shadow-inner transition-colors duration-300 group-hover:bg-sunshine-100 group-hover:text-sunshine-800">
+              <Sparkles className="w-8 h-8" strokeWidth={1.5} />
+            </div>
+            <h3 className="font-serif text-xl font-bold text-alpine-850 mb-4 tracking-wide">
+              Komfort
+            </h3>
+            <ul className="space-y-1">
+              {comfortItems.map((item) => (
+                <li key={item} className="text-alpine-900 text-sm font-light">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

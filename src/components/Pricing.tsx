@@ -2,7 +2,7 @@ import { Euro, Calendar, Sparkles, AlertCircle, Trash2 } from 'lucide-react';
 
 export default function Pricing() {
   return (
-    <section className="py-24 bg-white" id="pricing">
+    <section className="pt-12 pb-24 bg-white" id="pricing">
       <div className="container mx-auto px-4 max-w-5xl">
         
         <div className="text-center mb-16 space-y-3">
