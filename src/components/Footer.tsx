@@ -39,7 +39,7 @@ export default function Footer() {
             onClick={toggleImageSize}
           >
             <img
-              src="/images/team/gastgeber.jpg"
+              src="/images/team/gastgeber.webp"
               alt="Leo & Alexandra, Gastgeber der Thomanbauerhütte"
               className={`
                 object-cover transition-all duration-500 ease-out w-full
