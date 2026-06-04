@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Images } from 'lucide-react';
 
 const slideshowImages = [
   { 
@@ -85,7 +87,7 @@ export default function About() {
           {/* Visual Showcase Card with Interactive Carousel (Right side on desktop) */}
           <div className="lg:col-span-5 relative group">
             {/* Background design glow */}
-            <div className="absolute inset-0 bg-sunshine-400 rounded-3xl rotate-3 scale-[1.02] opacity-20 transition-transform duration-500 group-hover:rotate-1" />
+            <div className="absolute inset-0 bg-sunshine-400 rounded-3xl rotate-3 scale-[1.02] opacity-20 transition-transform duration-500 group-hover:rotate-1 pointer-events-none translate-y-4" />
             
             {/* Carousel Container */}
             <div 
@@ -142,6 +144,17 @@ export default function About() {
               <div className="absolute top-4 right-6 z-30 bg-black/35 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] text-white/90 uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 Nächstes Foto ➔
               </div>
+            </div>
+
+            {/* Link zur Galerie */}
+            <div className="mt-4 text-center">
+              <Link
+                to="/galerie"
+                className="inline-flex items-center gap-2 text-alpine-700 hover:text-alpine-900 text-xl font-semibold tracking-wide transition-colors duration-200"
+              >
+                <Images className="w-5 h-5" />
+                Alle Fotos ansehen
+              </Link>
             </div>
           </div>
 
