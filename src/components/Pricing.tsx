@@ -79,8 +79,7 @@ export default function Pricing() {
 
           {/* Additional Info Banner */}
           <div className="bg-alpine-50/50 border border-alpine-150 rounded-3xl p-8 sm:p-10 space-y-6">
-            <h3 className="font-serif text-xl font-bold text-alpine-850 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-sunshine-600" />
+            <h3 className="font-serif text-xl font-bold text-alpine-850">
               Zusätzliche Informationen & Konditionen
             </h3>
             
