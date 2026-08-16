@@ -35,7 +35,8 @@ export default function Legal() {
             <p className="text-base text-alpine-900 leading-relaxed font-light">
               <strong>Webseitenbetreiber:</strong> Leonhard Kendlbacher<br />
               Thomanbauerhütte<br />
-              Ramingstein, Österreich<br /><br />
+              Machein 31<br />
+              5591 Ramingstein<br /><br />
               <strong>Telefon:</strong> {showPhone ? (
                 <a href={`tel:${phonePrefix}${phonePart1}${phonePart2}${phonePart3}`} className="text-alpine-800 hover:text-sunshine-600 font-semibold underline decoration-sunshine-400">
                   {phonePrefix} {phonePart1} {phonePart2} {phonePart3}
