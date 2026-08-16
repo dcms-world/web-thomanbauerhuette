@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
+const hutAddress = 'Hinteralm 121, 5591 Ramingstein, Österreich';
+const mapsQuery = encodeURIComponent(hutAddress);
+const isAppleDevice = /Macintosh|iPhone|iPad|iPod/.test(navigator.userAgent);
+const locationUrl = isAppleDevice
+  ? `https://maps.apple.com/?address=${mapsQuery}`
+  : `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
+
 function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -113,15 +120,20 @@ function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-start gap-4">
                   <div className="bg-alpine-700/60 rounded-full p-3 text-sunshine-400">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-xs text-alpine-300 uppercase tracking-widest font-semibold">Lage der Hütte</p>
-                    <p className="text-base font-bold text-alpine-100">
-                      Ramingstein, Lungau (Salzburg)
-                    </p>
+                    <a
+                      href={locationUrl}
+                      className="text-base font-bold text-alpine-100 hover:text-sunshine-300 transition-colors"
+                      aria-label={`${hutAddress} in der Karten-App öffnen`}
+                    >
+                      Hinteralm 121<br />
+                      5591 Ramingstein, Österreich
+                    </a>
                   </div>
                 </div>
               </div>
