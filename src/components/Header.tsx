@@ -92,10 +92,8 @@ export default function Header() {
       aria-label="Thomanbauerhütte Hauptbild"
     >
       <picture className="absolute inset-0">
-        <source srcSet="/images/header/optimized/huette-aussen-compressed.webp" type="image/webp" />
-        <source srcSet="/images/header/optimized/huette-aussen-compressed.jpg" type="image/jpeg" />
         <img 
-          src="/images/header/optimized/huette-aussen-compressed.jpg" 
+          src="/images/header/huette-aussen3.webp"
           alt="Außenansicht der Thomanbauerhütte"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-75 ease-out scale-105"
           style={{
