@@ -46,7 +46,7 @@ export default function Pricing() {
                 
                 <ul className="space-y-3 text-alpine-900/80 mb-8 text-sm sm:text-base">
                   <li className="flex items-center gap-3">
-                    <span className="text-sunshine-600 font-bold">✓</span> Kurzaufenthalt ab 3 Nächten
+                    <span className="text-sunshine-600 font-bold">✓</span> Kurzaufenthalt bis 4 Nächte
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-sunshine-600 font-bold">✓</span> Personenunabhängiger Festpreis
@@ -87,7 +87,7 @@ export default function Pricing() {
                 
                 <ul className="space-y-3 text-alpine-100/90 mb-8 text-sm sm:text-base">
                   <li className="flex items-center gap-3">
-                    <span className="text-sunshine-400 font-bold">✓</span> Kurzaufenthalt ab 3 Nächten
+                    <span className="text-sunshine-400 font-bold">✓</span> Kurzaufenthalt bis 4 Nächte
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-sunshine-400 font-bold">✓</span> Personenunabhängiger Festpreis
