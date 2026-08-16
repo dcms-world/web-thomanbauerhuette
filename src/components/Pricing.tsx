@@ -147,8 +147,8 @@ export default function Pricing() {
                     <AlertCircle className="w-4 h-4" />
                   </div>
                   <div>
-                    <p className="font-bold text-alpine-850">Hütte bitte besenrein verlassen</p>
-                    <p className="text-xs text-alpine-600">Wir übergeben die Hütte sauber und bitten darum, diese vor Abreise grundlegend zu reinigen.</p>
+                    <p className="font-bold text-alpine-850">Sauber übergeben, ordentlich hinterlassen</p>
+                    <p className="text-xs text-alpine-600">Wir übergeben Ihnen die Hütte sauber und gepflegt. Bitte hinterlassen Sie sie bei Ihrer Abreise in demselben ordentlichen Zustand.</p>
                   </div>
                 </div>
 
